@@ -64,7 +64,7 @@ abstract class BaseRepository implements BaseRepositoryInterface
      * @param  array $values
      * @return $this
      */
-    public function whereIn($field, array $values)
+    public function whereIn($field, $values)
     {
         $this->builder = $this->builder->whereIn($field, $values);
 
