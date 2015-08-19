@@ -8,7 +8,7 @@ Install composer dependency.
 
     composer require kodebyraaet/pattern
 
-#### Create the file `App\Data\Repository.php` (the namespace may differ):
+##### Create the file `App\Data\Repository.php` (the namespace may differ):
 ```php
 <?php namespace App\Data;
 
@@ -20,7 +20,7 @@ class Repository extends BaseRepository
 }
 ```
 
-#### Create the file `App\Data\RepositoryInterface.php` (namespace may differ):
+##### Create the file `App\Data\RepositoryInterface.php` (namespace may differ):
 ```php
 <?php namespace App\Data;
 
@@ -32,4 +32,5 @@ interface RepositoryInterface extends BaseRepositoryInterface
 }
 ```
 
+## How to use
 Check out [Kodebyraaet Generators](https://github.com/Kodebyraaet/generators) for a easier way to create the structure that extends this repository pattern.
