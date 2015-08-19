@@ -1,0 +1,19 @@
+{
+    "name": "kodebyraaet/pattern",
+    "description": "The base for the repository pattern that we use in Kodebyraaet",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Fredrik Eriksen",
+            "email": "fredrik@kodebyraaet.no"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+    },
+    "autoload": {
+        "psr-4": {
+            "Kodebyraaet\\Pattern\\": "src"
+        }
+    }
+}
