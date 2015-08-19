@@ -8,7 +8,7 @@ Install composer dependency.
 
     composer require kodebyraaet/pattern
 
-### Create the file `App\Data\Repository.php` (the namespace may differ):
+#### Create the file `App\Data\Repository.php` (the namespace may differ):
 ```php
 <?php namespace App\Data;
 
@@ -20,7 +20,7 @@ class Repository extends BaseRepository
 }
 ```
 
-### Create the file `App\Data\RepositoryInterface.php` (namespace may differ):
+#### Create the file `App\Data\RepositoryInterface.php` (namespace may differ):
 ```php
 <?php namespace App\Data;
 
