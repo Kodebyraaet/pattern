@@ -29,6 +29,20 @@ interface BaseRepositoryInterface
     public function whereIn($field, $values);
 
     /**
+     * Add a whereNull to the query
+     * @param $field
+     * @return mixed
+     */
+    public function whereNull($field);
+
+    /**
+     * Add a whereNotNull to the query
+     * @param $field
+     * @return mixed
+     */
+    public function whereNotNull($field);
+
+    /**
      * Limit the number of rows returned
      *
      * @param  integer $limit

@@ -72,6 +72,33 @@ abstract class BaseRepository implements BaseRepositoryInterface
     }
 
     /**
+     * Add a whereNull to the query
+     *
+     * @param $field
+     * @return mixed
+     */
+    public function whereNull($field)
+    {
+        $this->builder = $this->builder->whereNull($field);
+
+        return $this;
+    }
+
+    /**
+     * Add a whereNotNull to the query
+     *
+     * @param $field
+     * @return mixed
+     */
+    public function whereNotNull($field)
+    {
+        $this->builder = $this->builder->whereNotNull($field);
+
+        return $this;
+    }
+
+
+    /**
      * Limit the number of rows returned
      *
      * @param  integer $limit
