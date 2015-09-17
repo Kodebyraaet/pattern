@@ -8,6 +8,14 @@ Install composer dependency.
 
     composer require kodebyraaet/pattern
 
+### Create the base repositories
+
+If you have the [Kodebyraaet Generators](https://github.com/Kodebyraaet/generators) installed you can just run the following command:
+
+    php artisan make:base-repository
+    
+Or you can do it manually:
+
 ##### Create the file `App\Data\Repository.php` (the namespace may differ):
 ```php
 <?php namespace App\Data;
