@@ -4,13 +4,13 @@ abstract class BaseRepository implements BaseRepositoryInterface
 {
     /**
      * The query builder object
-     * @var Builder
+     * @var \Illuminate\Database\Eloquent\Builder
      */
     protected $builder;
 
     /**
      * The Model object
-     * @var Model
+     * @var \Illuminate\Database\Eloquent\Model
      */
     protected $model;
 
