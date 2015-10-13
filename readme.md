@@ -16,9 +16,9 @@ If you have the [Kodebyraaet Generators](https://github.com/Kodebyraaet/generato
     
 Or you can do it manually:
 
-##### Create the file `App\Data\Repository.php` (the namespace may differ):
+##### Create the file `App\Entities\Repository.php` (the namespace may differ):
 ```php
-<?php namespace App\Data;
+<?php namespace App\Entities;
 
 use Kodebyraaet\Pattern\BaseRepository;
 
@@ -28,9 +28,9 @@ class Repository extends BaseRepository
 }
 ```
 
-##### Create the file `App\Data\RepositoryInterface.php` (namespace may differ):
+##### Create the file `App\Entities\RepositoryInterface.php` (namespace may differ):
 ```php
-<?php namespace App\Data;
+<?php namespace App\Entities;
 
 use Kodebyraaet\Pattern\BaseRepositoryInterface;
 

@@ -26,23 +26,23 @@ class BaseRepositoryServiceProvider extends ServiceProvider
         // Get the app namespace
         $namespace = $this->getAppNamespace();
 
-        // Get the Data folder
-        $dataFolder = app_path('Data');
+        // Get the Entity folder
+        $entityFolder = app_path('Entities');
 
-        // Loop through all the folders in the Data folder
-        foreach (glob($dataFolder.'/*', GLOB_ONLYDIR) as $folder) {
+        // Loop through all the folders in the Entity folder
+        foreach (glob($entityFolder.'/*', GLOB_ONLYDIR) as $folder) {
 
-            // Get the basename of the Data-folder, this is the name of the Data object
+            // Get the basename of the Entity-folder, this is the name of the Entity
             $name = basename($folder);
 
             // Check if this folder have a service provider
-            if (file_exists($dataFolder.'/'.$name.'/'.$name.'ServiceProvider.php')) {
+            if (file_exists($entityFolder.'/'.$name.'/'.$name.'ServiceProvider.php')) {
 
                 // Register its service provider
-                $this->app->register($namespace . 'Data\\' . $name . '\\' . $name . 'ServiceProvider');
+                $this->app->register($namespace . 'Entities\\' . $name . '\\' . $name . 'ServiceProvider');
 
             }
-        
+
         }
 
     }
