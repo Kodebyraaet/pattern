@@ -7,6 +7,10 @@ The base for the repository pattern we use in Kodebyraaet.
 Install composer dependency.
 
     composer require kodebyraaet/pattern
+    
+Add the Service Provider to the config/app.php file.
+
+    Kodebyraaet\Pattern\BaseRepositoryServiceProvider::class,
 
 ### Create the base repositories
 
