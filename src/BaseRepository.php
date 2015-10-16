@@ -1,4 +1,6 @@
-<?php namespace Kodebyraaet\Pattern;
+<?php
+
+namespace Kodebyraaet\Pattern;
 
 abstract class BaseRepository implements BaseRepositoryInterface
 {
@@ -13,7 +15,6 @@ abstract class BaseRepository implements BaseRepositoryInterface
      * @var \Illuminate\Database\Eloquent\Model
      */
     protected $model;
-
 
     /**
      * Constructor

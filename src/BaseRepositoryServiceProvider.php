@@ -1,4 +1,6 @@
-<?php namespace Kodebyraaet\Pattern;
+<?php
+
+namespace Kodebyraaet\Pattern;
 
 use Illuminate\Console\AppNamespaceDetectorTrait;
 use Illuminate\Support\ServiceProvider;
@@ -14,6 +16,7 @@ class BaseRepositoryServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
     }
 
     /**
@@ -40,10 +43,8 @@ class BaseRepositoryServiceProvider extends ServiceProvider
 
                 // Register its service provider
                 $this->app->register($namespace . 'Entities\\' . $name . '\\' . $name . 'ServiceProvider');
-
             }
 
         }
-
     }
 }

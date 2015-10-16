@@ -1,4 +1,6 @@
-<?php namespace Kodebyraaet\Pattern;
+<?php
+
+namespace Kodebyraaet\Pattern;
 
 interface BaseRepositoryInterface
 {

@@ -22,7 +22,9 @@ Or you can do it manually:
 
 ##### Create the file `App\Entities\Repository.php` (the namespace may differ):
 ```php
-<?php namespace App\Entities;
+<?php
+
+namespace App\Entities;
 
 use Kodebyraaet\Pattern\BaseRepository;
 
@@ -34,7 +36,9 @@ class Repository extends BaseRepository
 
 ##### Create the file `App\Entities\RepositoryInterface.php` (namespace may differ):
 ```php
-<?php namespace App\Entities;
+<?php
+
+namespace App\Entities;
 
 use Kodebyraaet\Pattern\BaseRepositoryInterface;
 
