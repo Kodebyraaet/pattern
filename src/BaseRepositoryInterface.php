@@ -2,6 +2,8 @@
 
 namespace Kodebyraaet\Pattern;
 
+use Illuminate\Database\Eloquent\Collection;
+
 interface BaseRepositoryInterface
 {
     /**
@@ -108,12 +110,33 @@ interface BaseRepositoryInterface
     public function get();
 
     /**
+     * Get an array with the values of a given column.
+     *
+     * @param      $column
+     * @param null $key
+     * @return \Illuminate\Support\Collection
+     */
+    public function lists($column, $key = null);
+
+    /**
      * Pluck a field from the database
      *
      * @param  string $field
      * @return Collection
+     *
+     * @deprecated
      */
     public function pluck($field);
+
+    /**
+     * Pluck a field from the database
+     *
+     * @param  string $field
+     * @return Collection
+     *
+     * @deprecated
+     */
+    public function value($field);
 
     /**
      * Create a new item

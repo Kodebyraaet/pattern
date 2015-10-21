@@ -2,6 +2,8 @@
 
 namespace Kodebyraaet\Pattern;
 
+use Illuminate\Database\Eloquent\Collection;
+
 abstract class BaseRepository implements BaseRepositoryInterface
 {
     /**
@@ -223,19 +225,53 @@ abstract class BaseRepository implements BaseRepositoryInterface
     }
 
     /**
+     * Get an array with the values of a given column.
+     *
+     * @param      $column
+     * @param null $key
+     * @return \Illuminate\Support\Collection
+     */
+    public function lists($column, $key = null)
+    {
+        // Save the results from the builder
+        $results = $this->builder->lists($column, $key);
+
+        // Reset the builder, just in case we are going to use this repository more then once
+        $this->newBuilder();
+
+        // Return stuff
+        return $results;
+    }
+
+
+    /**
+     * Pluck a field from the database
+     *
+     * @param  string $field
+     * @return Collection
+     *
+     * @deprecated
+     */
+    public function pluck($field)
+    {
+        return $this->value($field);
+    }
+
+    /**
      * Pluck a field from the database
      *
      * @param  string $field
      * @return Collection
      */
-    public function pluck($field)
+    public function value($field)
     {
-        $results = $this->builder->pluck($field);
+        $results = $this->builder->value($field);
 
         $this->newBuilder();
 
         return $results;
     }
+
 
     /**
      * Create a new item
