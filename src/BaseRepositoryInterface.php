@@ -147,6 +147,14 @@ interface BaseRepositoryInterface
     public function create(array $data);
 
     /**
+     * Find an item by given values, or create it if it doesn't exist
+     *
+     * @param array $data
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function firstOrCreate(array $data);
+
+    /**
      * Update an item
      *
      * @param integer $id

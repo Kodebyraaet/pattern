@@ -100,7 +100,6 @@ abstract class BaseRepository implements BaseRepositoryInterface
         return $this;
     }
 
-
     /**
      * Limit the number of rows returned
      *
@@ -243,7 +242,6 @@ abstract class BaseRepository implements BaseRepositoryInterface
         return $results;
     }
 
-
     /**
      * Pluck a field from the database
      *
@@ -272,7 +270,6 @@ abstract class BaseRepository implements BaseRepositoryInterface
         return $results;
     }
 
-
     /**
      * Create a new item
      *
@@ -282,6 +279,22 @@ abstract class BaseRepository implements BaseRepositoryInterface
     public function create(array $data)
     {
         $item = $this->builder->create($data);
+
+        // Reset the query builder
+        $this->newBuilder();
+
+        return $item;
+    }
+
+    /**
+     * Find an item by given values, or create it if it doesn't exist
+     *
+     * @param array $data
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function firstOrCreate(array $data)
+    {
+        $item = $this->builder->firstOrCreate($data);
 
         // Reset the query builder
         $this->newBuilder();
