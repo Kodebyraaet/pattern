@@ -321,13 +321,18 @@ abstract class BaseRepository implements BaseRepositoryInterface
     }
 
     /**
-     * Deletes an item
+     * Deletes an item if an id is specified, deletes all queried entries otherwise
      *
      * @param  integer $id
      * @return bool
      */
-    public function delete($id)
+    public function delete($id = null)
     {
+        if ($id === null) {
+            $delete = $this->builder->delete();
+            $this->newBuilder();
+        }
+
         return $this->builder->destroy($id);
     }
 
