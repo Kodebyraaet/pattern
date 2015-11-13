@@ -331,6 +331,7 @@ abstract class BaseRepository implements BaseRepositoryInterface
         if ($id === null) {
             $delete = $this->builder->delete();
             $this->newBuilder();
+            return $delete;
         }
 
         return $this->builder->destroy($id);
