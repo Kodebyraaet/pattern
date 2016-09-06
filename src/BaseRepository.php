@@ -45,7 +45,7 @@ abstract class BaseRepository implements BaseRepositoryInterface
      * By default a soft-deleted model does not return trashed. Use this
      * method to also fetch soft-deleted entries.
      *
-     * @return mixed
+     * @return $this
      */
     public function withTrashed()
     {
