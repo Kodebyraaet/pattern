@@ -15,6 +15,14 @@ interface BaseRepositoryInterface
     public function with(array $relations);
 
     /**
+     * By default a soft-deleted model does not return trashed. Use this
+     * method to also fetch soft-deleted entries.
+     *
+     * @return mixed
+     */
+    public function withTrashed();
+
+    /**
      * Add a where to the query
      * 
      * @param  string $field
