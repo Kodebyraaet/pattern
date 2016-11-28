@@ -34,11 +34,14 @@ interface BaseRepositoryInterface
 
     /**
      * Add a whereIn to the query
+     *
      * @param  string $field
-     * @param  array $values
+     * @param  array  $values
+     * @param  bool   $order
+     *
      * @return $this
      */
-    public function whereIn($field, $values);
+    public function whereIn($field, $values, $order);
 
     /**
      * Add a whereNull to the query

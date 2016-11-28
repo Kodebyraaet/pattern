@@ -3,6 +3,7 @@
 namespace Kodebyraaet\Pattern;
 
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\DB;
 
 abstract class BaseRepository implements BaseRepositoryInterface
 {
@@ -77,13 +78,20 @@ abstract class BaseRepository implements BaseRepositoryInterface
 
     /**
      * Add a whereIn to the query
+     *
      * @param  string $field
-     * @param  array $values
+     * @param  array  $values
+     * @param  bool   $order
+     *
      * @return $this
      */
-    public function whereIn($field, $values)
+    public function whereIn($field, $values, $order = false)
     {
         $this->builder = $this->builder->whereIn($field, $values);
+
+        if($order) {
+            $this->builder = $this->builder->orderByRaw(DB::raw("FIELD(".$field.", ".implode(',', $values).")"));
+        }
 
         return $this;
     }
