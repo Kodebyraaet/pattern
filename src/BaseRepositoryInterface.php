@@ -15,6 +15,17 @@ interface BaseRepositoryInterface
     public function with(array $relations);
 
     /**
+     * Query wether or not the relationship is empty of now.
+     *
+     * @param        $relation
+     * @param string $operator
+     * @param int    $count
+     *
+     * @return $this
+     */
+    public function has($relation, $operator = '>=', $count = 1);
+
+    /**
      * By default a soft-deleted model does not return trashed. Use this
      * method to also fetch soft-deleted entries.
      *
