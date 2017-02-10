@@ -2,12 +2,12 @@
 
 namespace Kodebyraaet\Pattern;
 
-use Illuminate\Console\AppNamespaceDetectorTrait;
+use Illuminate\Console\DetectsApplicationNamespace;
 use Illuminate\Support\ServiceProvider;
 
 class BaseRepositoryServiceProvider extends ServiceProvider
 {
-    use AppNamespaceDetectorTrait;
+    use DetectsApplicationNamespace;
 
     /**
      * Bootstrap any application services.
