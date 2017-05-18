@@ -1,4 +1,4 @@
-# Kodebyraaet Pattern for Laravel 5
+# Kodebyraaet Pattern for Laravel 5 and Lumen
 
 The base for the repository pattern we use in Kodebyraaet.
 
@@ -7,17 +7,21 @@ The base for the repository pattern we use in Kodebyraaet.
 Install composer dependency.
 
     composer require kodebyraaet/pattern
-    
-Add the Service Provider to the config/app.php file.
+
+If you are using Laravel add the Service Provider to the config/app.php file.
 
     Kodebyraaet\Pattern\BaseRepositoryServiceProvider::class,
+
+If you are using Lumen add the Service Provider to the bootstrap/app.php file.
+
+    $app->register(Kodebyraaet\Pattern\BaseRepositoryServiceProvider::class);
 
 ### Create the base repositories
 
 If you have the [Kodebyraaet Generators](https://github.com/Kodebyraaet/generators) installed you can just run the following command:
 
     php artisan make:base-repository
-    
+
 Or you can do it manually:
 
 ##### Create the file `App\Entities\Repository.php` (the namespace may differ):
@@ -44,7 +48,7 @@ use Kodebyraaet\Pattern\BaseRepositoryInterface;
 
 interface RepositoryInterface extends BaseRepositoryInterface
 {
-    
+
 }
 ```
 

@@ -30,7 +30,7 @@ class BaseRepositoryServiceProvider extends ServiceProvider
         $namespace = $this->getAppNamespace();
 
         // Get the Entity folder
-        $entityFolder = app_path('Entities');
+        $entityFolder = app('path').DIRECTORY_SEPARATOR.'Entities';
 
         // Loop through all the folders in the Entity folder
         foreach (glob($entityFolder.'/*', GLOB_ONLYDIR) as $folder) {
