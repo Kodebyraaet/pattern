@@ -192,4 +192,11 @@ interface BaseRepositoryInterface
      * @return bool
      */
     public function delete($id = null);
+
+	/**
+	 * Orders items by latest
+	 *
+	 * @return mixed
+	 */
+    public function latest();
 }

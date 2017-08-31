@@ -387,4 +387,16 @@ abstract class BaseRepository implements BaseRepositoryInterface
 
         $this->builder = new $class;
     }
+
+	/**
+	 *  Returns latest results
+	 *
+	 * @return \Illuminate\Database\Query\Builder|static
+	 */
+	public function latest()
+	{
+		$this->builder = $this->builder->latest();
+
+		return $this;
+	}
 }
