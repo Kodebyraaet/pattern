@@ -15,5 +15,12 @@
         "psr-4": {
             "Kodebyraaet\\Pattern\\": "src"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Kodebyraaet\\Pattern\\BaseRepositoryServiceProvider"
+            ]
+        }
     }
 }
