@@ -9,12 +9,14 @@ abstract class BaseRepository implements BaseRepositoryInterface
 {
     /**
      * The query builder object
+     *
      * @var \Illuminate\Database\Eloquent\Builder
      */
     protected $builder;
 
     /**
      * The Model object
+     *
      * @var \Illuminate\Database\Eloquent\Model
      */
     protected $model;
@@ -32,7 +34,8 @@ abstract class BaseRepository implements BaseRepositoryInterface
     /**
      * Eager load relations
      *
-     * @param  array $relations
+     * @param array $relations
+     *
      * @return $this
      */
     public function with(array $relations)
@@ -43,9 +46,9 @@ abstract class BaseRepository implements BaseRepositoryInterface
     }
 
     /**
-     * Query wether or not the relationship is empty of now.
+     * Query whether or not the relationship is empty of now.
      *
-     * @param        $relation
+     * @param string $relation
      * @param string $operator
      * @param int    $count
      *
@@ -75,16 +78,18 @@ abstract class BaseRepository implements BaseRepositoryInterface
 
     /**
      * Add a where to the query
-     * @param  string $field
-     * @param  string $operator
-     * @param  string $value
+     *
+     * @param string $field
+     * @param string $operator
+     * @param string $value
+     *
      * @return $this
      */
     public function where($field, $operator = null, $value = null)
     {
         // If there is only two arguments, the second one is the value
         if (func_num_args() == 2) {
-            $value = $operator;
+            $value    = $operator;
             $operator = '=';
         }
 
@@ -96,9 +101,9 @@ abstract class BaseRepository implements BaseRepositoryInterface
     /**
      * Add a whereIn to the query
      *
-     * @param  string $field
-     * @param  array  $values
-     * @param  bool   $order
+     * @param string $field
+     * @param array  $values
+     * @param bool   $order
      *
      * @return $this
      */
@@ -106,8 +111,9 @@ abstract class BaseRepository implements BaseRepositoryInterface
     {
         $this->builder = $this->builder->whereIn($field, $values);
 
-        if($order) {
-            $this->builder = $this->builder->orderByRaw(DB::raw("FIELD(".$field.", ".implode(',', $values).")"));
+        if ($order) {
+            $this->builder = $this->builder->orderByRaw(DB::raw("FIELD(" . $field . ", " . implode(',',
+                    $values) . ")"));
         }
 
         return $this;
@@ -116,8 +122,9 @@ abstract class BaseRepository implements BaseRepositoryInterface
     /**
      * Add a whereNull to the query
      *
-     * @param $field
-     * @return mixed
+     * @param string $field
+     *
+     * @return $this
      */
     public function whereNull($field)
     {
@@ -129,8 +136,9 @@ abstract class BaseRepository implements BaseRepositoryInterface
     /**
      * Add a whereNotNull to the query
      *
-     * @param $field
-     * @return mixed
+     * @param string $field
+     *
+     * @return $this
      */
     public function whereNotNull($field)
     {
@@ -142,7 +150,8 @@ abstract class BaseRepository implements BaseRepositoryInterface
     /**
      * Limit the number of rows returned
      *
-     * @param  integer $limit
+     * @param integer $limit
+     *
      * @return $this
      */
     public function limit($limit)
@@ -155,7 +164,8 @@ abstract class BaseRepository implements BaseRepositoryInterface
     /**
      * Skip a certain amount of rows
      *
-     * @param  integer $skip
+     * @param integer $skip
+     *
      * @return $this
      */
     public function skip($skip)
@@ -168,8 +178,9 @@ abstract class BaseRepository implements BaseRepositoryInterface
     /**
      * Add order by to the query
      *
-     * @param  string $column
-     * @param  string $direction
+     * @param string $column
+     * @param string $direction
+     *
      * @return $this
      */
     public function orderBy($column, $direction = 'ASC')
@@ -182,8 +193,9 @@ abstract class BaseRepository implements BaseRepositoryInterface
     /**
      * Will get entries from a specified page
      *
-     * @param  integer  $page
-     * @param  integer  $perPage
+     * @param integer $page
+     * @param integer $perPage
+     *
      * @return $this
      */
     public function page($page, $perPage = 15)
@@ -198,7 +210,7 @@ abstract class BaseRepository implements BaseRepositoryInterface
     /**
      * Count rows
      *
-     * @return Integer
+     * @return integer
      */
     public function count()
     {
@@ -231,6 +243,7 @@ abstract class BaseRepository implements BaseRepositoryInterface
      * Return an element of a given ID
      *
      * @param integer $id
+     *
      * @return Collection
      */
     public function find($id)
@@ -265,9 +278,10 @@ abstract class BaseRepository implements BaseRepositoryInterface
     /**
      * Get an array with the values of a given column.
      *
-     * @param      $column
-     * @param null $key
-     * @return \Illuminate\Support\Collection
+     * @param string $column
+     * @param string $key
+     *
+     * @return Collection
      */
     public function lists($column, $key = null)
     {
@@ -284,7 +298,8 @@ abstract class BaseRepository implements BaseRepositoryInterface
     /**
      * Pluck a field from the database
      *
-     * @param  string $field
+     * @param string $field
+     *
      * @return Collection
      *
      * @deprecated
@@ -297,7 +312,8 @@ abstract class BaseRepository implements BaseRepositoryInterface
     /**
      * Pluck a field from the database
      *
-     * @param  string $field
+     * @param string $field
+     *
      * @return Collection
      */
     public function value($field)
@@ -313,6 +329,7 @@ abstract class BaseRepository implements BaseRepositoryInterface
      * Create a new item
      *
      * @param array $data
+     *
      * @return mixed
      */
     public function create(array $data)
@@ -329,6 +346,7 @@ abstract class BaseRepository implements BaseRepositoryInterface
      * Find an item by given values, or create it if it doesn't exist
      *
      * @param array $data
+     *
      * @return \Illuminate\Database\Eloquent\Model
      */
     public function firstOrCreate(array $data)
@@ -346,6 +364,7 @@ abstract class BaseRepository implements BaseRepositoryInterface
      *
      * @param integer $id
      * @param array   $data
+     *
      * @return mixed
      */
     public function update($id, array $data)
@@ -362,7 +381,8 @@ abstract class BaseRepository implements BaseRepositoryInterface
     /**
      * Deletes an item if an id is specified, deletes all queried entries otherwise
      *
-     * @param  integer $id
+     * @param integer $id
+     *
      * @return bool
      */
     public function delete($id = null)
@@ -370,6 +390,7 @@ abstract class BaseRepository implements BaseRepositoryInterface
         if ($id === null) {
             $delete = $this->builder->delete();
             $this->newBuilder();
+
             return $delete;
         }
 
@@ -388,15 +409,15 @@ abstract class BaseRepository implements BaseRepositoryInterface
         $this->builder = new $class;
     }
 
-	/**
-	 *  Returns latest results
-	 *
-	 * @return \Illuminate\Database\Query\Builder|static
-	 */
-	public function latest()
-	{
-		$this->builder = $this->builder->latest();
+    /**
+     * Returns latest results
+     *
+     * @return $this
+     */
+    public function latest()
+    {
+        $this->builder = $this->builder->latest();
 
-		return $this;
-	}
+        return $this;
+    }
 }

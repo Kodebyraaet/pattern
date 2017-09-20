@@ -9,15 +9,16 @@ interface BaseRepositoryInterface
     /**
      * Eager load relations
      *
-     * @param  array $relations
+     * @param array $relations
+     *
      * @return $this
      */
     public function with(array $relations);
 
     /**
-     * Query wether or not the relationship is empty of now.
+     * Query whether or not the relationship is empty of now.
      *
-     * @param        $relation
+     * @param string $relation
      * @param string $operator
      * @param int    $count
      *
@@ -36,9 +37,10 @@ interface BaseRepositoryInterface
     /**
      * Add a where to the query
      * 
-     * @param  string $field
-     * @param  string $operator
-     * @param  string $value
+     * @param string $field
+     * @param string $operator
+     * @param string $value
+     *
      * @return $this
      */
     public function where($field, $operator = null, $value = null);
@@ -46,9 +48,9 @@ interface BaseRepositoryInterface
     /**
      * Add a whereIn to the query
      *
-     * @param  string $field
-     * @param  array  $values
-     * @param  bool   $order
+     * @param string $field
+     * @param array  $values
+     * @param bool   $order
      *
      * @return $this
      */
@@ -56,22 +58,27 @@ interface BaseRepositoryInterface
 
     /**
      * Add a whereNull to the query
-     * @param $field
-     * @return mixed
+     *
+     * @param string $field
+     *
+     * @return $this
      */
     public function whereNull($field);
 
     /**
      * Add a whereNotNull to the query
+     *
      * @param $field
-     * @return mixed
+     *
+     * @return $this
      */
     public function whereNotNull($field);
 
     /**
      * Limit the number of rows returned
      *
-     * @param  integer $limit
+     * @param integer $limit
+     *
      * @return $this
      */
     public function limit($limit);
@@ -79,7 +86,8 @@ interface BaseRepositoryInterface
     /**
      * Skip a certain amount of rows
      *
-     * @param  integer $skip
+     * @param integer $skip
+     *
      * @return $this
      */
     public function skip($skip);
@@ -87,8 +95,9 @@ interface BaseRepositoryInterface
     /**
      * Add order by to the query
      *
-     * @param  string $column
-     * @param  string $direction
+     * @param string $column
+     * @param string $direction
+     *
      * @return $this
      */
     public function orderBy($column, $direction = 'ASC');
@@ -96,8 +105,9 @@ interface BaseRepositoryInterface
     /**
      * Will get entries from a specified page
      *
-     * @param  integer  $page
-     * @param  integer  $perPage
+     * @param integer  $page
+     * @param integer  $perPage
+     *
      * @return $this
      */
     public function page($page, $perPage = 15);
@@ -105,7 +115,7 @@ interface BaseRepositoryInterface
     /**
      * Count total rows
      *
-     * @return Integer
+     * @return integer
      */
     public function count();
 
@@ -120,6 +130,7 @@ interface BaseRepositoryInterface
      * Return an element of a given ID
      *
      * @param integer $id
+     *
      * @return Collection
      */
     public function find($id);
@@ -134,16 +145,18 @@ interface BaseRepositoryInterface
     /**
      * Get an array with the values of a given column.
      *
-     * @param      $column
-     * @param null $key
-     * @return \Illuminate\Support\Collection
+     * @param string $column
+     * @param string $key
+     *
+     * @return Collection
      */
     public function lists($column, $key = null);
 
     /**
      * Pluck a field from the database
      *
-     * @param  string $field
+     * @param string $field
+     *
      * @return Collection
      *
      * @deprecated
@@ -153,7 +166,8 @@ interface BaseRepositoryInterface
     /**
      * Pluck a field from the database
      *
-     * @param  string $field
+     * @param string $field
+     *
      * @return Collection
      *
      * @deprecated
@@ -164,6 +178,7 @@ interface BaseRepositoryInterface
      * Create a new item
      *
      * @param array $data
+     *
      * @return mixed
      */
     public function create(array $data);
@@ -172,6 +187,7 @@ interface BaseRepositoryInterface
      * Find an item by given values, or create it if it doesn't exist
      *
      * @param array $data
+     *
      * @return \Illuminate\Database\Eloquent\Model
      */
     public function firstOrCreate(array $data);
@@ -181,6 +197,7 @@ interface BaseRepositoryInterface
      *
      * @param integer $id
      * @param array   $data
+     *
      * @return mixed
      */
     public function update($id, array $data);
@@ -188,7 +205,8 @@ interface BaseRepositoryInterface
     /**
      * Deletes an item
      *
-     * @param  integer $id
+     * @param integer $id
+     *
      * @return bool
      */
     public function delete($id = null);
@@ -196,7 +214,7 @@ interface BaseRepositoryInterface
 	/**
 	 * Orders items by latest
 	 *
-	 * @return mixed
+	 * @return $this
 	 */
     public function latest();
 }
