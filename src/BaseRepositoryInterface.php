@@ -110,7 +110,7 @@ interface BaseRepositoryInterface
      *
      * @return $this
      */
-    public function page($page, $perPage = 15);
+    public function page($page = 1, $perPage = 15);
 
     /**
      * Count total rows
